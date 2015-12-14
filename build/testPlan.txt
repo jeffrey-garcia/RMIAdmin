@@ -1,0 +1,58 @@
+Part A: Functionality Test on Different Platform
+=================================================
+1. Test all the server side programs on RedHat Linux
+	passed
+	
+2. Test all the server side programs on IBM RS/6000
+	passed
+
+3. Test all the server side programs on Windows Vista
+	passed
+
+4. Test all the server side programs on MAC OS X (Intel)
+	passed
+
+5. Test all the client side programs on RedHat Linux
+	Client side GUI display size need to be adjusted
+
+6. Test all the client side programs on IBM RS/6000
+	Not available
+	
+7. Test all the client side programs on Windows Vista
+	passed
+	
+8. Test all the server side programs on MAC OS X (Intel)
+	failed
+
+9. Test on different JRE (e.g. 1.3.X, 1.4.X & 5)
+
+
+Part B: Command Mode
+=================================================
+1. Setup parameter from command line call
+2. Create some sample batch or shell script
+
+
+Part C: Generate JavaDoc
+=================================================
+1. Create the API manual
+2. Develope some JAVA programs & test the importation
+
+
+Part D: Performance Test
+=================================================
+1. Code enhancement
+2. Re-compile the source code with latest Compiler
+3. Test the performance on various network
+	e.g. LAN, Internet (BroadBand/Modem)
+
+
+Part E: Re-Iterate all the test phase [A to E]
+=================================================
+1. Additional test on Suse Linux
+2. Additional test on MAC OS
+
+
+Part F: Final Phase
+=================================================
+1. Clean-up all obsoleted coding. e.g. Remarks
