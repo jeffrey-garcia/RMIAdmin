@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Remote File Browser
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to perform file operation on remote computer locally, much 
+				similar as if you are using Windows Explorer over various file system.
+				
+				<br><br><br>
+				
+				For example, when you want to move a file from one place to another on several remote 
+				machines, you could simply do this in just one interface of RMIAdmin, regardless of 
+				the target computer platform.
+				
+				<br><br>
+				
+				For example when you want to operate files from a Windows computer to another Windows computer, 
+				you must either use FTP or map the remote network drives (which must be shared initially). 
+				
+				<br><br>
+				
+				The same applied to unix-like computer, you have to start the NFS / FTP / Samba service before 
+				you could really connect with these remote file system, which is therefore raising a great deal 
+				management issue such as specific settings, as well as security concern. While RMIAdmin keeps 
+				you away from this burden by means of the RMIServer program in which configurations is guaranteed 
+				to be consistent even across various computer platforms.
+				
+				<br><br>
+				
+				The usage of RMIAdmin File Browser is fairly easy and much alike to Windows Explorer.
+				<ol color="#666666">
+					<li>
+						Select "Tools" -> "File Browser", this will brings you to the File Browser Workspace.<br>
+						<img src="images/file_browser_workspace.gif" alt="0" border="0" width="936" height="585">
+					</li>
+					<li>
+						Choose your target server to operate by clicking the &quot;Select Server&quot; button.
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click &quot;OK&quot; to continue.<br>
+						<img src="images/select_server.gif" alt="0" border="0" width="272" height="123">
+					</li>
+					<li>
+						As shown above, the File Browser Workspace is divided into 2 views:
+						<ul>
+							<li>the File Tree View on the left side</li>
+							<li>the File Table View on the right side</li>
+						</ul>
+					</li>
+					<li>
+						Where you could actually perform operations listed below across these 2 
+						different views.<br>
+						<img src="images/file_browser_operation.gif" alt="" border="0" width="451" height="502">
+						<ul>
+							<li>Copy and Paste</li>
+							<li>Cut and Paste</li>
+							<li>Delete</li>
+							<li>Create</li>
+							<li>Rename</li>
+							<li>Edit</li>
+							<li>View Property</li>
+						</ul>
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Quick Navigation</u>
+				<ol color="#666666">
+					<li>
+						Type your target destination on the "Remote Path" input field.<br>
+					</li>
+					<li>
+						When completed, click "Go" to proceed navigation.
+						<img src="images/file_browser_path_navigator.gif" alt="0" border="0" width="642" height="250">
+					</li>
+					<li>
+						If you want to immediately go one-level up of the existing path, 
+						simply click the "Up" button.
+					</li>
+					<li>
+						If you input an invalid path that does not exist, there will be a 
+						warning message.<br>
+						<img src="images/path_not_found.gif" alt="0" border="0" width="346" height="154">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that the file path entered is non-case sensitive for Windows, but 
+						case sensitive for all unix-like system.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<a name="copy_and_paste"></a>
+				<u>Copy and Paste</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Copy.
+					</li>
+					<li>
+						Goto the target location, then right click on it and select Paste.
+					</li>
+					<li>
+						A progress monitor will then be shown, indicating the amount of completion, 
+						simply wait until completion.<br>
+						<img src="images/copy_file.gif" alt="0" border="0" width="250" height="89">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can select more than one objects from the File Table 
+						view, but not the File Tree View.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<a name="cut_and_paste"></a>
+				<u>Cut and Paste</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Cut.
+					</li>
+					<li>
+						Goto the target location, then right click on it and select Paste.
+					</li>
+					<li>
+						A progress monitor will then be shown, indicating the amount of completion, 
+						simply wait until completion.<br>
+						<img src="images/move_file.gif" alt="0" border="0" width="249" height="88">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can select more than one objects from the File Table 
+						view, but not the File Tree View.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<a name="delete"></a>
+				<u>Delete</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Delete.
+					</li>
+					<li>
+						A warning message will be prompted, seeking your confirmation.<br>
+						Press "OK" to proceed or press "Cancel" to abort.
+					</li>
+					<li>
+						A progress monitor will then be shown, indicating the amount of completion, 
+						simply wait until completion.<br>
+						<img src="images/delete_file.gif" alt="0" border="0" width="249" height="88">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can select more than one objects from the File Table 
+						view, but not the File Tree View.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<a name="create"></a>
+				<u>Create</u>
+				<ol color="#666666">
+					<li>
+						Select the location where you would like to create the new object.
+					</li>
+					<li>
+						Right click on it and select Create.
+					</li>
+					<li>
+						A selection box will be prompted, simply select the creation type.<br>
+						e.g. Folder or File<br>
+						<img src="images/select_creation_type.gif" alt="0" border="0" width="272" height="134"><br>
+						then press "OK" to continue or "Cancel" to abort.
+					</li>
+					<li>
+						If you click "OK" above, you will then required to enter the name 
+						of the new object.<br>
+						<img src="images/input_filename.gif" alt="0" border="0" width="272" height="129"><br>
+						Press "OK" to continue or "Cancel" to abort.
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can only select one object either from the File Table View  
+						or the File Tree View.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<a name="rename"></a>
+				<u>Rename</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Rename.
+					</li>
+					<li>
+						An input box will be prompted, simply enter the new name of the selected object.<br>
+						<img src="images/rename_file.gif" alt="0" border="0" width="272" height="129"><br>
+						Press "OK" to continue or "Cancel" to abort.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<a name="refresh"></a>
+				<u>Refresh</u>
+				<ol color="#666666">
+					<li>
+						Select any folder from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Refresh. This will refresh all the objects under the 
+						selected location.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<a name="edit_file"></a>
+				<u>Edit File</u>
+				<ol color="#666666">
+					<li>
+						Select a file from the File Tree View or File Table View.
+					</li>
+					<li>
+						Right click on it and select Edit.
+					</li>
+					<li>
+						The file editor of RMIAdmin will then be invoked, click 
+						<a href="edit_file.html"><font face="Arial" color="#666666" size=4>HERE</font></a>
+						for its usage
+					</li>
+				</ol>
+				
+				<br>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul color="#666666">
+						<li>
+							<a href="file_browser_cli.html"><font face="Arial" color="#666666" size=4>Remote File Browser [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="file_transfer.html"><font face="Arial" color="#666666" size=4>Remote File Transfer</font></a>
+						</li>
+						<li>
+							<a href="edit_file.html"><font face="Arial" color="#666666" size=4>Editing File</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

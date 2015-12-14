@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN"
+         "../dtd/toc_2_0.dtd">
+         
+<toc version="2.0">
+	<tocitem text="RMIAdmin Help" image="toplevelfolder">
+		<tocitem text="Introduction" target="start" expand="true">
+			<tocitem text="Welcome" target="welcome"/>
+			<tocitem text="Introduction to RMIAdmin Help" target="help_intro"/>
+			<tocitem text="What is RMIAdmin?" target="what_is_rmiadmin"/>
+			<tocitem text="Features" target="features"/>
+			<tocitem text="Supported Platform" target="supported_os"/>
+			<tocitem text="Quick Start" target="quick_start"/>
+			<tocitem text="Installation and Setup" target="install_setup"/>
+			<tocitem text="What's next in Future?" target="future"/>
+		</tocitem>
+		
+		<tocitem text="Using the Workspace" target="using_workspace" expand="false">
+			<tocitem text="Manage Server" target="manage_server"/>
+			<tocitem text="Execute Remote Command" target="execute_command"/>
+			<tocitem text="Remote File Browser" target="file_browser"/>
+			<tocitem text="Remote File Transfer" target="file_transfer"/>
+			<tocitem text="Connection Monitor" target="connection_monitor"/>
+			<tocitem text="Setup Shell" target="setup_shell"/>
+			<tocitem text="Customized Batch" target="custom_batch"/>
+			<tocitem text="Editing File" target="edit_file"/>
+			<tocitem text="Remote Control (Beta)" target="remote_control"/>
+		</tocitem>
+		
+		<tocitem text="Using Command Line" target="using_command" expand="false">
+			<tocitem text="Execute Remote Command" target="execute_command_cli"/>
+			<tocitem text="Remote File Transfer" target="file_transfer_cli"/>
+			<tocitem text="Remote File Browser" target="file_browser_cli"/>
+			<tocitem text="Connection Monitor" target="connection_monitor_cli"/>
+			<tocitem text="Start RMI Server" target="rmiserver_cli"/>
+		</tocitem>
+		
+		<tocitem text="Others" target="start" expand="false">
+			<tocitem text="Software Registration" target="software_register"/>
+			<tocitem text="Generate Authentication" target="generate_auth"/>
+			<tocitem text="Manage Performance" target="manage_performance"/>
+			<tocitem text="Importing Server List" target="import_server_list"/>
+			<tocitem text="Exporting Server List" target="export_server_list"/>
+			<tocitem text="Exporting Debug Console" target="export_debug_console"/>
+			<tocitem text="Auto Upgrade" target="auto_upgrade"/>
+		</tocitem>	
+		
+		<tocitem text="RMIAdmin Online" target="rmiadmin_online"/>
+		<tocitem text="Licenses Agreement" target="license"/>
+		<tocitem text="Acknowledge" target="acknowledge"/>
+		<tocitem text="Copyright" target="copyright"/>
+	</tocitem>
+</toc>
+

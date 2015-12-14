@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Command Line Option - Remote File Transfer
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin support command line usage, therefore you may further develop script/batch which invoke 
+				activity such as "Execute Remote Command", as a result to promote automation.
+				
+				<br><br><br>
+				
+				For example, you may wish to perform file transfer via Command Prompt (for Windows) or Console 
+				(for Unix-like Computer) rather than using the RMIAdmin GUI. The benefit is that you could then 
+				embed all your instructions into batch (*.bat) or shell script (*sh), and therefore the integration 
+				with other scripting/programming languages is made possible.
+				
+				<br><br>
+				
+				<u>Usage instructions</u>
+				<ol color="666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdmin_FileTransfer -h
+						</font>
+						<br>
+						Display the help menu
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdmin_FileTransfer -i <i>ip_address</i>
+						</font>
+						<br>
+						Specify the "IP Address" of remote RMIServer e.g. "203.186.94.62"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdmin_FileTransfer -p <i>port_no</i>
+						</font>
+						<br>
+						Specify the "Port Number" of remote RMIServer e.g. "1099"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdmin_FileTransfer -s <i>shell</i>
+						</font>
+						<br>
+						Specify the "Shell" of remote RMIServer e.g. "cmd.exe or /bin/bash"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_FileTransfer -o <i>"transfer_operations"</i>
+						</font>
+						<br>
+						Specify the "Operation" of File Transfer to be executed on remote RMIServer.
+						<ul color="#666666">
+							<b>Available <i>"transfer_operations"</i>:</b>
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									upload "Source PathName" "Destination Path" -a
+								</font>
+								<br>
+								Upload file or directory to Remote Server in ASCII mode
+								<br><br>
+								[Windows Example - upload c:\test.txt in ASCII mode to a: of remote server]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o upload "c:\test.txt" "a:" -a
+								<br>
+								<img src="images/file_transfer_cli_example_1.gif" alt="0" border="0" width="668" height="331">
+								<br>
+								[Linux Example - upload /test.exe in ASCII mode to /mnt/floppy of remote server]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o upload "/test.exe" "/mnt/floppy" -a
+								<br><br>
+							</li>
+							
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									upload "Source PathName" "Destination Path" -b
+								</font>
+								<br>
+								Upload file or directory to Remote Server in Binary mode
+								<br><br>
+								[Windows Example - upload c:\test.exe in Binary mode to a: of remote server]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o upload "c:\test.exe" "a:" -b
+								<br><br>
+								[Linux Example - upload /test.txt in Binary mode to /mnt/floppy of remote server]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o upload "/test.exe" "/mnt/floppy" -b
+								<br><br>
+							</li>
+							
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									upload "Source PathName" "Destination Path" -[a|b] -r
+								</font>
+								<br>
+								Upload file or directory to Remote Server in Binary mode, and overwrite even if target exist
+								<br><br>
+								[Windows Example - upload c:\test.exe in Binary mode to a: of remote server even if exist]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o upload "c:\test.exe" "a:" -a -r
+								<br><br>
+								[Linux Example - upload /test.txt in Binary mode to /mnt/floppy of remote server even if exist]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o upload "/test.exe" "/mnt/floppy" -a -r
+								<br><br>
+							</li>
+							
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									download "Source PathName" "Destination Path" -a
+								</font>
+								<br>
+								Download file or directory from Remote Server in ASCII mode
+								<br><br>
+								[Windows Example - download c:\test.txt in ASCII mode from remote server to a:]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o download "c:\test.txt" "a:" -a
+								<br><br>
+								[Linux Example - download /test.exe in ASCII mode from remote server to /mnt/floppy]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o download "/test.exe" "/mnt/floppy" -a
+								<br><br>
+							</li>
+							
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									download "Source PathName" "Destination Path" -b
+								</font>
+								<br>
+								Download file or directory from Remote Server in Binary mode
+								<br><br>
+								[Windows Example - download c:\test.exe in Binary mode from remote server to a:]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o download "c:\test.exe" "a:" -b
+								<br><br>
+								[Linux Example - download /test.txt in Binary mode from remote server to /mnt/floppy]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o download "/test.exe" "/mnt/floppy" -b
+								<br><br>
+							</li>
+							
+							<li>
+								<font face="Arial" color="#FF0066" size=4>
+									download "Source PathName" "Destination Path" -[a|b] -r
+								</font>
+								<br>
+								Download file or directory to Remote Server in Binary mode, and overwrite even if target exist
+								<br><br>
+								[Windows Example - download c:\test.exe in Binary mode from remote server to a: even if exist]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.62 -p 1099 -s cmd.exe -o download "c:\test.exe" "a:" -a -r
+								<br><br>
+								[Linux Example - download /test.txt in Binary mode from remote server to /mnt/floppy even if exist]
+								<br>
+								java RMIAdmin.RMIAdminClient_FileTransfer -i 203.186.94.61 -p 1099 -s /bin/bash -o download "/test.exe" "/mnt/floppy" -a -r
+							</li>
+						</ul>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage Tips</u>
+				<ol color="#666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Note that the command entered is non-case sensitive for Windows, but 
+							case sensitive for all unix-like system.
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							If the command entered contain double quotes, the \ symbol should be included for the double quotes to 
+							be passed in properly.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java RMIAdmin.RMIAdminClient_FileBrowser -i 203.186.94.62 -p 1099 -s cmd.exe -o copy "\"c:\program files\test\"" "a:"
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Cross-platform execution is supported, therefore you can perform use command mode on a Linux Machine to 
+							invoke instructions on remote Windows Machine, and vice versa.
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							To run this command successfully, you must include the path (including filename) where 
+							you placed the RMIAdmin program (RMIAdmin.jar) in the system classpath.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						set CLASSPATH=%CLASSPATH%;<i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. set CLASSPATH=%CLASSPATH%;c:\RMIAdmin\RMIAdmin.jar<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in C:\RMIAdmin
+						</font>
+						
+						<br><br>
+						
+						[Linux Example]<br>
+						CLASSPATH=$CLASSPATH:<i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. CLASSPATH=$CLASSPATH:/RMIAdmin/RMIAdmin.jar<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in /RMIAdmin
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Other than setting the system classpath, you may also use the java -cp parameter to 
+							specify the CLASSPATH at runtime.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp C:\RMIAdmin\RMIAdmin.jar RMIAdmin.RMIClient_FileTransfer -i ......<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in C:\RMIAdmin
+						</font>
+						
+						<br><br>
+						
+						[Linux Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp /RMIAdmin/RMIAdmin.jar RMIAdmin.RMIClient_FileTransfer -i ......<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in /RMIAdmin
+						</font>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="file_transfer.html"><font face="Arial" color="#666666" size=4>Remote File Transfer</font></a>
+						</li>
+						<li>
+							<a href="file_browser_cli.html"><font face="Arial" color="#666666" size=4>Remote File Browser [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="execute_command_cli.html"><font face="Arial" color="#666666" size=4>Execute Remote Command [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="connection_monitor_cli.html"><font face="Arial" color="#666666" size=4>Connection Monitor [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="rmiserver_cli.html"><font face="Arial" color="#666666" size=4>Starting RMI Server [Command Mode]</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

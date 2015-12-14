@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Execute Remote Command
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to execute Operating System's command of remote computer 
+				locally and wait for the result, must similar to invoking command locally.
+				
+				<br><br>
+				
+				For example, you want to run a command "tree c:" in Windows, this command indeed 
+				may take a certain time to finish and the output will contain millions lines of 
+				information. RMIAdmin will helps you to operate the command, track the status of 
+				the execution, and return you the partial result instantly via buffering technique 
+				rather than keep you waiting until the command finished on remote computer.
+				
+				<br><br>
+				
+				<u>Execute Remote Command</u>
+				<ol color="#666666">
+					<li>
+						Select &quot;Tools&quot; -> &quot;Command Line&quot;, this will brings you to the Command Line Workspace.<br>
+						<img src="images/command_line_workspace.gif" alt="0" border="0" width="925" height="584">
+					</li>
+					<li>
+						Choose your target server to operate by clicking the &quot;Select Server&quot; button.
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click &quot;OK&quot; to continue.<br>
+						<img src="images/select_server.gif" alt="0" border="0" width="272" height="123">
+					</li>
+					<li>
+						Next click the &quot;Run Command&quot; button, this will open up a 
+                       &quot;Command Console&quot; where you could input the command to be executed.<br>
+						<img src="images/command_console.gif" alt="0" border="0" width="492" height="427">
+					</li>
+					<li>
+						Key-in any preferred command and click the &quot;Run&quot; to invoke the execution, result 
+						of the command will be displayed on the Output Screen of the Command Line Workspace 
+						shortly.
+					</li>
+					<li>
+						You may also terminate and executing command by clicking the 
+						&quot;Stop&quot; button, this will stop the process at remote server immediately.
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage Tips</u>
+				
+				<br><br>
+				
+				Note that the Command Console of RMIAdmin is different to telnet/SSH which support 
+				a continous login session in the shell environment. 
+				Instead, if you need to execute continous command which is co-related, you have to do 
+				this by linking all the commands with the "&&" syntax.
+				
+				<br><br>
+				
+				For example in Windows, when you need to perform the following:
+				<ul color="#666666">
+					<li>Set the %CLASSPATH% variable to include a specific path</li>
+					<li>Execute a command or program which is valid only when the above CLASSPATH value has been set</li>
+				</ul>
+				
+				<br><br>
+				
+				If you try to do this separately with two commands via the Command Console, you will fail 
+				obviously. Since the Command Console of RMIAdmin does not retain the same shell environment 
+				as the previous command, in other words, the command is for "one-time" only.
+				
+				<br><br>
+				
+				Therefore to achieve the above task, here is the workaround:
+				<ul color="#666666">
+					<li>
+						Combine the two commands with the "&&" symbols.
+						<br>
+						<font face="Arial" size=3 color="#333333">
+							set CLASSPATH=%CLASSPATH%;<i>preferred_path</i> <b>&&</b> <i>some_commands_or_program</i>
+						</font>
+					</li>
+				</ul>
+				
+				<br><br>
+				
+				Another examples if we now have to go into a specific directory and then list our all 
+				the .exe files, again if we seperate the "cd to_some_folders" command and the "dir *exe" 
+				command, we will fail to retrieve the correct output.
+				
+				<br><br>
+				
+				Even the RMIAdmin did successfully complete the "cd to_some_folders" command, however 
+				when execute the second command, the RMIAdmin will not retain the position from previous 
+				command as the execution path.
+				
+				<br><br>
+				
+				Hence, to retrieve the correct output:
+				<ul color="#666666">
+					<li>
+						We must link these two commands again by "&&".
+						<br>
+						<font face="Arial" size=3 color="#333333">
+							cd <i>preferred_path</i> <b>&&</b> <i>dir *.exe</i>
+						</font>
+					</li>
+				</ul>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul color="#666666">
+						<li>
+							<a href="setup_shell.html"><font face="Arial" color="#666666" size=4>Setup Shell Environment</font></a>
+						</li>
+						<li>
+							<a href="custom_batch.html"><font face="Arial" color="#666666" size=4>Customized Batch</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

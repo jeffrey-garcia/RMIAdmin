@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Connection Monitor
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to monitor the connection status of remote computer, you could then easily identify 
+				which server is currently down or not available (either due to a physical problem e.g. Network link down, 
+				or a logical error e.g. the failure of RMI Service)
+				
+				<br><br><br>
+				
+				For example, when you can't connect to a remote server for unknown cause, you may use the Connection 
+				Monitor to diagnose the problem, which could assist you to identify the possible cause.
+				
+				<br><br>
+				
+				Occasionally, the failure of communication may be due to:
+				<ol color="#666666">
+					<li>
+						Network linkage physically down
+					</li>
+					<li>
+						Remote server is physically shutdown
+					</li>
+					<li>
+						Remote server's hardware device failure
+					</li>
+					<li>
+						Remote server's application error
+					</li>
+				</ol>
+				
+				<br>
+				
+				The usage of RMIAdmin Connection Monitor is designed to be as simple as possible such that you 
+				could easily perform diagnostic procedure in critical moment.<br>
+				<img src="images/connection_monitor_workspace.jpg" alt="0" border="0" width="893" height="618">
+				
+				<br><br>
+				
+				<u>Rehresh all the connection status</u>
+				<ol color="#666666">
+					<li>
+						Click the "Connect All" button.
+					</li>
+					<li>
+						A progress monitor will be displayed, wait until the connection test completed.
+					</li>
+					<li>
+						RMIAdmin will then attempt to connect all the managed server, and return the 
+						connection status to you shortly.<br>
+						<img src="images/link_status.gif" alt="" border="" width="722" height="244">
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Rehresh connection status of any selected server</u>
+				<ol color="#666666">
+					<li>
+						Select the target server(s) from the Link Status view, then press the "Re-Connect" 
+						button.
+					</li>
+					<li>
+						A progress monitor will be displayed, wait until the connection test completed.
+					</li>
+					<li>
+						RMIAdmin will then attempt to connect all the managed server, and return the 
+						connection status to you shortly.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Restart the RMI Service of remote server</u>
+				<br><br>
+				This feature is provided for the sake of restarting RMI service at 
+				remote server, especially when the remote RMI service appears to be 
+				hang up or being unstable.
+				<ol color="#666666">
+					<li>
+						Select the target server(s) from the Link Status view, then press the "Restart RMI" 
+						button.
+					</li>
+					<li>
+						A warning message will then be prompted, asking your confirmation to proceed restarting 
+						the RMI service at remote server.
+						<br>
+						<img src="images/confirm_restart_rmi.gif" align="absmiddle" border="0">
+					</li>
+					<li>
+						Once you clicked "OK", the remote RMI service will be restarted immediately.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Shutdown the RMI Service of remote server</u>
+				<br><br>
+				This feature allows you to terminate the RMI service at remote server. Once invoked, 
+				the client will not be able to connect back to the remote server again via RMI, unless 
+				the RMI service is started again locally or by other remoting tools (e.g telnet).
+				<ol color="#666666">
+					<li>
+						Select the target server(s) from the Link Status view, then press the "Shutdown RMI" 
+						button.
+					</li>
+					<li>
+						A warning message will then be prompted, asking your confirmation to proceed restarting 
+						the RMI service at remote server.
+						<br>
+						<img src="images/confirm_shutdown_rmi.gif" align="absmiddle" border="0">
+					</li>
+					<li>
+						Once you clicked "OK", the remote RMI service will be terminated immediately.
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="connection_monitor_cli.html"><font face="Arial" color="#666666" size=4>Connection Monitor [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="rmiserver_cli.html"><font face="Arial" color="#666666" size=4>Starting RMI Server [Command Mode]</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

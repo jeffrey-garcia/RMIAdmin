@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Customized Batch
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to define customized batch job to promote automation.
+				
+				<br><br><br>
+				
+				For example, you may need to execute a set of commands/scripts periodically on various managed servers. 
+				RMIAdmin helps to streamline the overall procedures by means of pre-defining of batch job.
+				
+				<br><br>
+				
+				Let's take a look on this scenario.<br>
+				Each day you need to perform the following commands in sequence:
+				<ol color="#666666">
+					<li>net time \\a_time_server /yes (<i>to syncronize the time with a time server</i>)</li>
+					<li>type c:\a_log_file (<i>to view the contect of a log file e.g. Backup Log</i>)</li>
+					<li>del c:\obsoleted_files (<i>to purge some obsoleted files/folders for housekeeping</i>)</li>
+				</ol>
+				It would be quite awesome if you need to run this command separately on the remote computer via 
+				"Remote Command Execution", therefore RMIAdmin allows you to define your own batch job, putting all 
+				thses commands together and classified them into various batch job with similar operations.
+				
+				<br><br>
+				
+				For some complex batch scripting (such as those with conditional processing), it is suggested to coded 
+				them into a batch (*.bat) or shell script (*.sh), then further embedded them in the "Custom Batch" of 
+				RMIAdmin.
+				
+				<br><br>
+				
+				The "Custom Batch" feature support Multi-Threading technology, so you don't have to wait until all the 
+				commands in the batch is completed before you could retrieve the output, since RMIAdmin will assist you 
+				to retrieve the output at remote computer in nearly real-time.
+								
+				<br><br>
+				
+				<ol color="#666666">
+					<li>
+						Select &quot;Tools&quot; -> &quot;Command Line&quot;, this will brings you to the Command Line Workspace.<br>
+						<img src="images/command_line_workspace.gif" alt="0" border="0" width="925" height="584">
+					</li>
+					<li>
+						Choose your target server to operate by clicking the &quot;Select Server&quot; button.
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click "OK" to continue.<br>
+						<img src="images/select_server.gif" alt="0" border="0" width="272" height="123">
+					</li>
+					<li>
+						Next click the "Custom Batch" button, this will open up the "Batch Manager" window, 
+						where you could define you own batch job.<br>
+						<img src="images/batch_manager.gif" alt="0" border="0" width="266" height="245">
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Create new Batch</u>
+				<ol color="#666666">
+					<li>
+						Click the "Create" button, this will open a window for defining new batch.
+					</li>
+					<li>
+						Enter any preferred name for easy identification of the batch in the "Name" field.
+					</li>
+					<li>
+						Input all the commands one-by-one in separate line.<br>
+						<img src="images/create_batch.gif" alt="" border="" width="297" height="245">
+					</li>
+					<li>
+						Click "Create" to set the new batch, click "Clear" to purge all the input values.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Modify existing Batch</u>
+				<ol color="#666666">
+					<li>
+						Click the "Modify" button, this will open a window which load the initial value of 
+						the batch.
+					</li>
+					<li>
+						Perform your update.<br>
+						<img src="images/edit_batch.gif" alt="" border="" width="295" height="246">
+					</li>
+					<li>
+						Click "Save" to apply the new settings, click "Reset" to abort the changes and reset all the values.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Delete obsoleted Batch</u>
+				<ol color="#666666">
+					<li>
+						Select the target Batch to be deleted, then click the "Delete" button.
+					</li>
+					<li>
+						This will immediately dispose the selected Batch from the screen.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Execute the Batch</u>
+				<ol color="#666666">
+					<li>
+						Select the target Batch, then click the "Execute" button.
+					</li>
+					<li>
+						The instruction will then be executed remotely, and the result will be displayed 
+						on the "Output Screen".
+					</li>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that the current version of RMIAdmin does not allow you to assign different shell 
+						environment to various defined batch job.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<u>Save the defined Batch Jobs</u>
+				<ol color="#666666">
+					<li>
+						From the "Option Panel" of the Command Line Workspace, click the "Save Setting" button.
+					</li>
+					<li>
+						This will save all the defined Batch Jobs to the current server.
+					</li>
+					<li>
+						A message will be prompted upon completion.
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="execute_command.html"><font face="Arial" color="#666666" size=4>Execut Remote Command</font></a>
+						</li>
+						<li>
+							<a href="setup_shell.html"><font face="Arial" color="#666666" size=4>Setup Shell Environment</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

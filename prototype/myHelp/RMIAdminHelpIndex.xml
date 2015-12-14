@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE index
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/index_1_0.dtd">
+
+<index version="1.0">
+	<indexitem text="Acknowledge" target="acknowledge"/>
+	<indexitem text="Copyright" target="copyright"/>
+	<indexitem text="Licenses Agreement" target="license"/>
+	<indexitem text="RMIAdmin Online" target="rmiadmin_online"/>
+	
+	<indexitem text="Command Line Usage" expand="false">
+		<indexitem text="Connection Monitor" target="connection_monitor_cli"/>
+		<indexitem text="Execute Remote Command" target="execute_command_cli"/>
+		<indexitem text="Remote File Browser" target="file_browser_cli"/>
+		<indexitem text="Remote File Transfer" target="file_transfer_cli"/>
+		<indexitem text="Start RMI Server" target="rmiserver_cli"/>
+	</indexitem>
+	
+	<indexitem text="Introduction" expand="false">
+		<indexitem text="Features" target="features"/>
+		<indexitem text="Installation and Setup" target="install_setup"/>
+		<indexitem text="Introduction to RMIAdmin Help" target="intro"/>
+		<indexitem text="Supported Platform" target="supported_os"/>
+		<indexitem text="Welcome" target="welcome"/>
+		<indexitem text="What is RMIAdmin?" target="what_is_rmiadmin"/>
+		<indexitem text="What's next in Future?" target="future"/>
+	</indexitem>
+	
+	<indexitem text="Others" expand="false">
+		<indexitem text="Exporting Debug Console" target="export_debug_console"/>
+		<indexitem text="Exporting Server List" target="export_server_list"/>
+		<indexitem text="Generate Authentication" target="generate_auth"/>
+		<indexitem text="Software Registration" target="software_register"/>
+	</indexitem>
+	
+	<indexitem text="Workspace Usage" expand="false">
+		<indexitem text="Connection Monitor" target="connection_monitor"/>
+		<indexitem text="Customized Batch" target="custom_batch"/>
+		<indexitem text="Editing File" target="edit_file"/>
+		<indexitem text="Execute Remote Command" target="execute_command"/>
+		<indexitem text="Manage Server" target="manage_server"/>
+		<indexitem text="Remote File Browser" target="file_browser"/>
+		<indexitem text="Remote File Transfer" target="file_transfer"/>
+		<indexitem text="Setup Shell" target="setup_shell"/>
+	</indexitem>
+</index>
+

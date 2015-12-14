@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javadoc/help/map_1_0.dtd">
+
+<map version="1.0">
+	<mapID target="toplevelfolder" url="images/toplevel.gif" />
+	<mapID target="top" url="help/welcome.html" />
+	
+	<mapID target="welcome" url="help/welcome.html" />
+	<mapID target="help_intro" url="help/help_intro.html" />
+	<mapID target="what_is_rmiadmin" url="help/what_is_rmiadmin.html" />
+	<mapID target="features" url="help/features.html" />
+	<mapID target="supported_os" url="help/supported_os.html" />
+	<mapID target="quick_start" url="help/quick_start.html" />
+	<mapID target="install_setup" url="help/install_setup.html" />
+	<mapID target="future" url="help/future.html" />
+	
+	<mapID target="manage_server" url="help/manage_server.html" />
+	<mapID target="execute_command" url="help/execute_command.html" />
+	<mapID target="file_transfer" url="help/file_transfer.html" />
+	<mapID target="file_browser" url="help/file_browser.html" />
+	<mapID target="connection_monitor" url="help/connection_monitor.html" />
+	<mapID target="setup_shell" url="help/setup_shell.html" />
+	<mapID target="custom_batch" url="help/custom_batch.html" />
+	<mapID target="edit_file" url="help/edit_file.html" />
+	<mapID target="remote_control" url="help/remote_control.html" />
+	
+	<mapID target="execute_command_cli" url="help/execute_command_cli.html" />
+	<mapID target="file_transfer_cli" url="help/file_transfer_cli.html" />
+	<mapID target="file_browser_cli" url="help/file_browser_cli.html" />
+	<mapID target="connection_monitor_cli" url="help/connection_monitor_cli.html" />
+	<mapID target="rmiserver_cli" url="help/rmiserver_cli.html" />
+	
+	<mapID target="software_register" url="help/software_register.html" />
+	<mapID target="generate_auth" url="help/generate_auth.html" />
+	<mapID target="manage_performance" url="help/manage_performance.html" />
+	<mapID target="import_server_list" url="help/import_server_list.html" />
+	<mapID target="export_server_list" url="help/export_server_list.html" />
+	<mapID target="export_debug_console" url="help/export_debug_console.html" />
+	<mapID target="auto_upgrade" url="help/auto_upgrade.html" />
+	
+	<mapID target="rmiadmin_online" url="help/rmiadmin_online.html" />
+	<mapID target="license" url="help/license.html" />
+	<mapID target="acknowledge" url="help/acknowledge.html" />
+	<mapID target="copyright" url="help/copyright.html" />
+</map>
+

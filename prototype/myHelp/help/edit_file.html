@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Editing File
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to edit remote file locally, you could then easily update the content of 
+				remote file as if you are doing the update on local computer.
+				
+				<br><br><br>
+				
+				In practical, you could even modify the source code of a program from remote server, and 
+				compile it using Remote Command Execution.
+				
+				<br><br>
+				
+				One major improvements made to this function is that the editor now support large file 
+				size (e.g. over 1MB). With the implementation on buffering, large files is broken down 
+				into various segment (based on the buffer value, maximum 1MB).
+				
+				<br><br>
+				
+				For example, if you set the buffered value to 1MB, this simply means that when the file is 
+				loaded, only 1MB of data will be fetched to the current page/view of the editor, and you could 
+				view the remaining portion of the file by moving to the next page, in which next 1MB of data 
+				will be fetched and displayed.
+				
+				<br><br>
+				
+				You could of course, change the buffer value anytime when editing the file, and the entire 
+				file will be reloaded into the editor when you apply the new buffer settings.
+				
+				<br><br>
+				
+				Simply right click any preferred file from either File Transfer / File Browser Workspace and 
+				select "Edit" to begin editing.<br>&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="images/edit_file.gif" alt="0" border="0" width="482" height="385">
+				
+				<br><br>
+				
+				<u>Set the Buffer Size</u>
+				<ol>
+					<li>
+						Click the "Buffer" button, this will open the "Setup Buffer" window as below.<br>
+						<img src="images/setup_buffer.gif" alt="0" border="0" width="326" height="273">
+					</li>
+					<li>
+						Input the preferred buffer size in unit - Bytes. Maximum 1024000 which is 
+						equivalent to 1MB.
+					</li>
+					<li>
+						Click "OK" to apply the changes, click "Cancel" to abort.
+					</li>
+					<li>
+						If new buffer value is applied, the editor will reload the entire file.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Move to Next page</u>
+				<ol>
+					<li>
+						Click the "Next" button, this will load the next portion of data into the editor.
+					</li>
+					<li>
+						Amount of data loaded will be bounded by the defined buffer size.
+					</li>
+					<li>
+						Modified data on current page WILL BE RETAINED even moving to next page.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Move to Previous page</u>
+				<ol>
+					<li>
+						Click the "Next" button, this will load the next portion of data into the editor.
+					</li>
+					<li>
+						Amount of data loaded will be bounded by the defined buffer size.
+					</li>
+					<li>
+						Modified data on current page WILL BE RETAINED even moving back to previous page.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Reload the entire file</u>
+				<ol>
+					<li>
+						Anytime you wish to reload the entire file, click the "Reload" button, maximum amount of data 
+						fetched into each page will be based on the buffer value.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Save the modified file</u>
+				<ol>
+					<li>
+						When modfication is completed and you want to overwrite the original file, click the 
+						"Quit" button. 
+					</li>
+					<li>
+						A warning message will be prompted which seek your confirmation.<br>
+						<img src="images/confirm_overwrite.gif" alt="0" border="0" width="368" height="123">
+					</li>
+					<li>
+						Click "OK" to proceed overwrite, click "Cancel" to abort. The editor will then 
+						be closed.
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Cancel modifying the file</u>
+				<ol>
+					<li>
+						Anytime you want to cancel all the modification and quit the editor, click 
+						the "Cancel" button. 
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="file_transfer.html"><font face="Arial" color="#666666" size=4>Remote File Transfer</font></a>
+						</li>
+						<li>
+							<a href="file_browser.html"><font face="Arial" color="#666666" size=4>Remote File Browser</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

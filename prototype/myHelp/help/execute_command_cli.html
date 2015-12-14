@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Command Line Option - Execute Remote Command
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin support command line usage, therefore you may further develop script/batch which invoke 
+				activity such as "Execute Remote Command", as a result to promote automation.
+				
+				<br><br><br>
+				
+				For example, you may wish to execute remote command via Command Prompt (for Windows) or Console 
+				(for Unix-like Computer) rather than using the RMIAdmin GUI. The benefit is that you could then 
+				embed all your instructions into batch (*.bat) or shell script (*sh), and therefore the integration 
+				with other scripting/programming languages is made possible.
+				
+				<br><br>
+				
+				<u>Usage instructions</u>
+				<ol color="666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_CommandLine -h
+						</font>
+						<br>
+						Display the help menu
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_CommandLine -i <i>ip_address</i>
+						</font>
+						<br>
+						Specify the "IP Address" of remote RMIServer e.g. "203.186.94.62"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_CommandLine -p <i>port_no</i>
+						</font>
+						<br>
+						Specify the "Port Number" of remote RMIServer e.g. "1099"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_CommandLine -s <i>shell</i>
+						</font>
+						<br>
+						Specify the "Shell" of remote RMIServer e.g. "cmd.exe or /bin/bash"
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java RMIAdmin.RMIAdminClient_CommandLine -c <i>"command_and_arguments"</i>
+						</font>
+						<br>
+						Specify the "Command" to be executed, e.g. "dir c:\ && copy *txt ..\"
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage examples</u><br>
+				java RMIAdmin.RMIAdminClient_CommandLine -i <i>ip_address</i> -p <i>port_no</i> -s <i>shell</i> -c <i>"command"</i><br>
+				<ol color="#666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Listing all the batch files in floppy disk on remote server
+						</font>
+						
+						<br>
+						
+						[Windows]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.62 -p 1099 -s cmd.exe -c "dir a:\*.bat"<br>
+						<img src="images/execute_command_cli_example_1.gif" alt="0" border="0" width="668" height="307">
+						<br><br>
+						
+						[Linux]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.61 -p 1099 -s /bin/bash -c "ls -la /"
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Perform files copy on remote server
+						</font>
+						
+						<br>
+						
+						[Windows]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.62 -p 1099 -s cmd.exe -c "copy c:\winnt\system32\drivers\etc\hosts a:\"
+						<br><br>
+						
+						[Linux]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.61 -p 1099 -s /bin/bash -c "cp /etc/hosts /mnt/floppy"
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Invoke scripts/batch on remote server
+						</font>
+						
+						<br>
+						
+						[Windows]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.62 -p 1099 -s cmd.exe -c "c:\testing.bat"
+						<br><br>
+						
+						[Linux]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.61 -p 1099 -s /bin/bash -c "/testing.sh"
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage Tips</u>
+				<ol color="#666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Note that the command entered is non-case sensitive for Windows, but 
+							case sensitive for all unix-like system.
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							If the command entered contain double quotes, the \ symbol should be included for the double quotes to 
+							be passed in properly.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java RMIAdmin.RMIAdminClient_CommandLine -i 203.186.94.62 -p 1099 -s cmd.exe -c "dir \"c:\program files\""
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Cross-platform execution is supported, therefore you can perform use command mode on a Linux Machine to 
+							invoke instructions on remote Windows Machine, and vice versa.
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							To run this command successfully, you must include the path (including filename) where 
+							you placed the RMIAdmin program (RMIAdmin.jar) in the system classpath.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						set CLASSPATH=%CLASSPATH%;<i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. set CLASSPATH=%CLASSPATH%;c:\RMIAdmin\RMIAdmin.jar<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in C:\RMIAdmin
+						</font>
+						
+						<br><br>
+						
+						[Linux Example]<br>
+						CLASSPATH=$CLASSPATH:<i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. CLASSPATH=$CLASSPATH:/RMIAdmin/RMIAdmin.jar<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in /RMIAdmin
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Other than setting the system classpath, you may also use the java -cp parameter to 
+							specify the CLASSPATH at runtime.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp C:\RMIAdmin\RMIAdmin.jar RMIAdmin.RMIClient_CommandLine -i ......<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in C:\RMIAdmin
+						</font>
+						
+						<br><br>
+						
+						[Linux Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp /RMIAdmin/RMIAdmin.jar RMIAdmin.RMIClient_CommandLine -i ......<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in /RMIAdmin
+						</font>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="execute_command.html"><font face="Arial" color="#666666" size=4>Execute Remote Command</font></a>
+						</li>
+						<li>
+							<a href="setup_shell.html"><font face="Arial" color="#666666" size=4>Setup Shell Environment</font></a>
+						</li>
+						<li>
+							<a href="file_browser_cli.html"><font face="Arial" color="#666666" size=4>Remote File Browser [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="file_transfer_cli.html"><font face="Arial" color="#666666" size=4>Remote File Transfer [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="connection_monitor_cli.html"><font face="Arial" color="#666666" size=4>Connection Monitor [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="rmiserver_cli.html"><font face="Arial" color="#666666" size=4>Starting RMI Server [Command Mode]</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

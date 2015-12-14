@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Remote Control (BETA)
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				Since the previous version launch, we receive various feed back and wish list requesting 
+				a VNC like Remote Control Utility to be bundled with RMIAdmin. We highly appreciate for 
+				the comments and suggestions given and therefore after certain refinements, we began to 
+				explore the technial feasibility in order to provide a "Cross-platform Remote Control" 
+				solution for our users.
+				
+				<br><br>
+				
+				With the launch of RMIAdmin v1.3, the Remote Control (BETA) version is offered, we are 
+				providing this function as a courtesy to System Amdin and Developers for problem 
+				resolution. 
+				
+				<br><br>
+				
+				Please kindly note that this utility is still in the beginning stages for development, 
+				so it may perform erratically. If something is not working, please visit the RMIAdmin 
+				official website at 
+				<a href="http://www.rmiAdmin.net" target="_blank"><font face="Arial" size="4" color="#FF0066">http://www.rmiAdmin.net</font></a> 
+				for the latest enhancements, bug and security fixes.
+				
+				<br><br>
+				
+				Should you have any comment or suggestion, please send us an email to 
+				<a href="mailto:cs@rmiadmin.net"><font face="Arial" size="4" color="#FF0066">cs@rmiadmin.net</font></a>
+				.
+				
+				<br><br><br>
+				
+				Follow the instructions below to use the remote control:
+				
+				<ol color="#666666">
+					<li>
+						First, go to the top menu bar, select &quot;Tools&quot; -> &quot;Remote Control [Beta]&quot;.<br>
+					</li>
+					<li>
+						Choose your target server to operate by clicking the "Select Server" button. 
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click &quot;OK&quot; to continue.<br>
+						<img src="images/select_server.gif" alt="" border="0">
+					</li>
+					<li>
+						Wait for a little while until the remote computer return its desktop screen. 
+						There maybe some delay for initialization upon first time screen capturing.<br>
+						<img src="images/remote_control.jpg" alt="" border="0">
+					</li>
+				</ol>
+				
+				<br>
+				
+				<a name="basic_requirement"></a>
+				<u>Basic Requirement for Remote Control</u>
+				<ol>
+					<li>
+						In order to support the Remote Control feature, the remote computer must start the RMIServer service 
+						in Graphical Environments.
+					</li>
+					<li>
+						For Windows users, this is not a concern as Graphical Environments is the default mode when the 
+						operating system start up.
+					</li>
+					<li>
+						However for all Unix-like system (such as Linux, MAC OS X), the RMIServer must be started in an 
+						X-Windows environment. This simply means that if you are using SSH or telnet to start the RMIServer 
+						service, then obviously no remote control session could be established with this computer.
+					</li>
+					<li>
+						Note that some platforms require special privileges or extensions to access low-level input control. 
+						If the current platform configuration does not allow input control, an AWTException error will be 
+						thown upon the startup of RMIServer service.
+					</li>
+					<li>
+						For example, X-Window systems will throw the exception if the XTEST 2.2 standard extension is not 
+						supported (or not enabled) by the X server.
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="rmiserver_cli.html"><font face="Arial" color="#666666" size=4>Starting RMIServer</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 &copy; RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

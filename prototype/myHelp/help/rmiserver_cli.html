@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Command Line Option - Start the RMI Server
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin is compriesed of two separate programs: a server and a client.
+				
+				<br><br><br>
+				
+				The RMI Server application creates some remote objects, calls the registry 
+				to associate (or bind) a name, makes references to them accessible, and 
+				waits for clients to invoke methods on these remote objects. 
+				
+				<br><br>
+				
+				RMI Server provides the mechanism by which the RMI Client communicate and pass 
+				information back and forth, which therefore coule be identfied as a distributed 
+				object application.
+				
+				<br><br>
+				
+				To start the RMI service at remote server, please read the instruction below.
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					* Note that if you would like to entertain the "Remote Control [Beta]" feature, 
+					please make sure you start the RMI server under a Graphical User Environment.
+				</font>
+				
+				<br><br>
+				
+				For details, please read the
+				<a href="remote_control.html#basic_requirement"><font face="Arial" color="#666666" size=4>Remote Control</font></a> 
+				page to get more information.
+				
+				<br><br>
+				
+				<u>Usage instructions</u>
+				<ol color="666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -h
+						</font>
+						<br>
+						Display the help menu
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -p <i>port_no</i>
+						</font>
+						<br>
+						Specify the "Port Number" of remote RMIServer e.g. "1099", if this 
+						option is not specified, the program will automatically use the default 
+						RMI port [1099].
+						<br><br>
+					</li>
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -k
+						</font>
+						<br>
+						To activate the encryption of RMI Service Name, this parameter is 
+						optional.
+						<br><br>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage examples</u><br>
+				java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -p <i>port_no</i> -k<br>
+				<ol color="#666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Start the RMI Server on port 1091 with encrypted RMI service name.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -p 1099 -k<br>
+						<img src="images/rmiserver_cli_example_1.gif" alt="0" border="0" width="669" height="438">
+						<br><br>
+						
+						[Linux Example]<br>
+						java -cp <i>fullpath_&_name_of_the_RMIAdmin.jar</i> RMIAdmin.RMIServer -p 1099 -k
+						<br><br>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<u>Usage Tips</u>
+				<ol color="#666666">
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							Note that the command entered is case sensitive for both Windows and 
+							Unix-like system.
+						</font>
+						
+						<br><br>
+					</li>
+					
+					<li>
+						<font face="Arial" color="#FF0066" size=4>
+							To run this command successfully, you must use the java -cp parameter to 
+							specify the CLASSPATH at runtime.
+						</font>
+						
+						<br>
+						
+						[Windows Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp C:\RMIAdmin\RMIAdmin.jar RMIAdmin.RMIServer -p 1099 -k<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in C:\RMIAdmin
+						</font>
+						
+						<br><br>
+						
+						[Linux Example]<br>
+						java -cp <i>fullpath_of_RMIAdmin.jar</i><br>
+						e.g. java -cp /RMIAdmin/RMIAdmin.jar RMIAdmin.RMIServer -p 1099 -k<br>
+						<font face="Arial" color="#333333" size="3">
+							* Assume RMIAdmin.jar is installed in /RMIAdmin
+						</font>
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="install_setup.html"><font face="Arial" color="#666666" size=4>RMIAdmin Installation and Setup</font></a>
+						</li>
+						<li>
+							<a href="generate_auth.html"><font face="Arial" color="#666666" size=4>Generate Authentication</font></a>
+						</li>
+						<li>
+							<a href="software_register.html"><font face="Arial" color="#666666" size=4>Software Registration</font></a>
+						</li>
+						<li>
+							<a href="connection_monitor_cli.html"><font face="Arial" color="#666666" size=4>Connection Monitor [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="execute_command_cli.html"><font face="Arial" color="#666666" size=4>Execute Remote Command [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="file_browser_cli.html"><font face="Arial" color="#666666" size=4>Remote File Browser [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="file_transfer_cli.html"><font face="Arial" color="#666666" size=4>Remote File Transfer [Command Mode]</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

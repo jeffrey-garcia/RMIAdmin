@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				What is RMIAdmin?
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<table border="0" cellspacing="0" cellpadding="0"> 
+				<tr>
+					<td>
+						<font face="Arial" size=4 color="#666666">
+							RMIAdmin is a powerful software developed based on the Java<sup>TM</sup> RMI technology.
+							
+							<br><br><br>
+							
+							RMIAdmin allows System Administrators / Developers / Users to manage remote 
+							computers over the network regardless of the target computer platform. 
+							With the use of RMIAdmin, we could easily perform routine administrative 
+							tasks in just one single interface. As a result easing the management of 
+							multiple machine in a complex environment with mixed computer platform.
+							
+							<br><br><br>
+							
+							Here are the list of features provided:<br>
+							
+							<u>Core Utility</u>
+							<ul color="#666666">
+								<li>Invoke Operating System's command of remote computers locally.</li>
+								<li>Perform file operation of remote computers locally</li>
+								<li>Transfer of files between remote and local computers</li>
+								<li>Monitoring the connection status of managed computers</li>
+								<li>Graphical Remote Control (Beta) for accessing the remote desktop screen</li>
+							</ul>
+							
+							<u>Extended Feature of the Core Utility</u>
+							<ul color="#666666">
+								<li>Command mode for customized shell scripting (Batch automation)</li>
+								<li>API for programming plugin, integration with external system (<i>not yet available</i>)</li>
+								<li>Server-side & Client-side logging feature</li>
+								<li>Managed Server List export & import</li>
+								<li>Encrypted Key Authentication</li>
+								<li>Managing the memory performance of the JAVA VM of remote computers</li>
+								<li>Auto-Upgrade to help you easily obtain latest enhancements as well as bug fix</li>
+							</ul>
+							
+							For details, please read the <a href="features.html">features</a> document
+							
+							<br><br><br>
+							
+							<u>What is RMI Technology?</u>
+							<br>
+							Distributed systems require that computations running in 
+							different address spaces, potentially on different hosts, 
+							be able to communicate. For a basic communication mechanism, 
+							the Java<sup>TM</sup> programming language supports sockets, 
+							which are flexible and sufficient for general communication. 
+							However, sockets require the client and server to engage in 
+							applications-level protocols to encode and decode messages for 
+							exchange, and the design of such protocols is cumbersome and 
+							can be error-prone.
+							<br><br>
+							An alternative to sockets is Remote Procedure Call (RPC), which 
+							abstracts the communication interface to the level of a procedure call. 
+							Instead of working directly with sockets, the programmer has the 
+							illusion of calling a local procedure, when in fact the arguments 
+							of the call are packaged up and shipped off to the remote target 
+							of the call. RPC systems encode arguments and return values using an 
+							external data representation, such as XDR.
+							<br><br>
+							RPC, however, does not translate well into distributed object 
+							systems, where communication between program-level objects residing 
+							in different address spaces is needed. In order to match the semantics 
+							of object invocation, distributed object systems require Remote Method 
+							Invocation (RMI). In such systems, a local surrogate (stub) object 
+							manages the invocation on a remote object.
+							<br><br>
+							The Java platform's remote method invocation system described 
+							in this specification has been specifically designed to operate 
+							in the Java application environment. The Java programming language's 
+							RMI system assumes the homogeneous environment of the Java virtual 
+							machine (JVM), and the system can therefore take advantage of the Java 
+							platform's object model whenever possible.
+							<br><br>
+							RMI applications are often comprised of 
+                        	two separate programs: a server and a client. A typical 
+                        	server application creates some remote objects, makes 
+                        	references to them accessible, and waits for clients to 
+                        	invoke methods on these remote objects. A typical client 
+                        	application gets a remote reference to one or more 
+                        	remote objects in the server and then invokes methods on 
+                        	them. RMI provides the mechanism by which the server and 
+                        	the client communicate and pass information back and 
+                        	forth. Such an application is sometimes referred to as a 
+                        	distributed object application.
+                        	<br><br>
+							You may also read the JAVA's official website for more details.
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

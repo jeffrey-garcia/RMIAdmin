@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Remote File Transfer
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to transfer files between local and remote computers in one single interface, much 
+				similar as if you are using Internet Explorer to connect with the FTP Service over various file system.
+				
+				<br><br><br>
+				
+				For example, when you want to upload a file/folder from local machine to remote machines, you could simply do 
+				this in just one interface of RMIAdmin, regardless of the target computer platform, moreover FTP Client/Server 
+				is no longer required since RMIAdmin is capable to handle transfer of data across network.
+				
+				<br><br>
+				
+				For example when you want to transfer files from one Windows computer to another Windows computer, 
+				you must either use FTP or map the remote network drives (which must be shared initially).
+				
+				<br><br>
+				
+				The same applied to unix-like computer, you have to start the NFS / FTP / Samba service before 
+				you could really connect with these remote file system, which is therefore raising a great deal 
+				management issue such as specific settings, as well as security concern. While RMIAdmin keeps 
+				you away from this burden by means of the RMIServer program in which configurations is guaranteed 
+				to be consistent even across various computer platforms.
+				
+				<br><br>
+				
+					The usage of RMIAdmin File Browser is fairly easy and much alike to Windows Explorer.
+				<ol color="#666666">
+					<li>
+						Select "Tools" -> "File Browser", this will brings you to the File Browser Workspace.<br>
+						<img src="images/file_transfer_workspace.gif" alt="0" border="0" width="954" height="618">
+					</li>
+					<li>
+						Choose your target server to operate by clicking the &quot;Select Server&quot; button.
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click &quot;OK&quot; to continue.<br>
+						<img src="images/select_server.gif" alt="0" border="0" width="272" height="123">
+					</li>
+					<li>
+						As shown above, the File Transfer View is divided into 2 views:
+						<ul>
+							<li>the Local File View on the left side</li>
+							<li>the Remote File View on the right side</li>
+						</ul>
+					</li>
+					<li>
+						Where you could actually perform operations listed below across these 2 
+						different views.
+						<ul>
+							<li>Instant Upload (Ascii & Binary files)</li>
+							<li>Instant Download (Ascii & Binary files)</li>
+							<li>Delay Upload (Ascii & Binary files)</li>
+							<li>Delay Download (Ascii & Binary files)</li>
+							<li>Copy and Paste</li>
+							<li>Cut and Paste</li>
+							<li>Delete</li>
+							<li>Create</li>
+							<li>Rename</li>
+							<li>Edit</li>
+							<li>View Property</li>
+						</ul>
+					</li>
+				</ol>
+				
+				<br>
+				
+				<u>Instant Upload</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the Local File View.
+					</li>
+					<li>
+						Goto the Remote File View and select the target location (must be a folder).
+					</li>
+					<li>
+						Right click on it and select "Upload" > "Instant Upload", then select the transfer type.<br>
+						<img src="images/upload_file.gif" alt="0" border="0" width="628" height="383">
+					</li>
+					<li>
+						A progress monitor will then be shown, indicating the amount of completion, 
+						simply wait until completion.<br>
+						<img src="images/uploading_file.gif" alt="0" border="0" width="249" height="87">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can only select one object from the Local File View each time, thus if you 
+						want to transfer large amount of files to same location, it is suggested to use "Delay Upload".
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<u>Instant Download</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the Remote File View.
+					</li>
+					<li>
+						Goto the Local File View and select the target location (must be a folder).
+					</li>
+					<li>
+						Right click on it and select "Download" > "Instant Download", then select the transfer type.<br>
+						<img src="images/download_file.gif" alt="0" border="0" width="444" height="369">
+					</li>
+					<li>
+						A progress monitor will then be shown, indicating the amount of completion, 
+						simply wait until completion.<br>
+						<img src="images/downloading_file.gif" alt="0" border="0" width="250" height="86">
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can may select more than one object from the Remote File View each time, but if you 
+						want to transfer large amount of files to same location, it is suggested to use "Delay Download".
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<u>Delay Upload</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the Local File View.
+					</li>
+					<li>
+						Goto the Remote File View and select the target location (must be a folder).
+					</li>
+					<li>
+						Right click on it and select "Upload" > "Delay Upload", then select the transfer type.
+					</li>
+					<li>
+						You may then continue to select other files or folders and queue all the transfer activities.
+					</li>
+					<li>
+						When the queue is settled and is ready to be uploaded, click the "Upload Queue" button.<br>
+						<img src="images/open_upload_queue.gif" alt="" border="" width="233" height="233">
+					</li>
+					<li>
+						This will open up the "Upload Queue Window".<br>
+						<img src="images/upload_queue.gif" alt="" border="" width="548" height="286">
+						<br>Click "Start Upload" to proceed the transfer.
+						<br>Click "Refresh" to reload the queue.
+						<br>Click "Cancel All" to remove all the objects from the queue.
+						<br>If you want to remove a specfic object from the queue, select it and click "Cancel".
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can only select one object from the Local File View each time.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<u>Delay Download</u>
+				<ol color="#666666">
+					<li>
+						Select any folder or file from the Remote File View.
+					</li>
+					<li>
+						Goto the Local File View and select the target location (must be a folder).
+					</li>
+					<li>
+						Right click on it and select "Download" > "Instant Download", then select the transfer type.
+					</li>
+					<li>
+						You may then continue to select other files or folders and queue all the transfer activities.
+					</li>
+					<li>
+						When the queue is settled and is ready to be downloaded, click the "Download Queue" button.<br>
+						<img src="images/open_download_queue.gif" alt="" border="" width="397" height="233">
+					</li>
+					<li>
+						This will open up the "Download Queue Window".<br>
+						<img src="images/download_queue.gif" alt="" border="" width="545" height="294">
+						<br>Click "Start Download" to proceed the transfer.
+						<br>Click "Refresh" to reload the queue.
+						<br>Click "Cancel All" to remove all the objects from the queue.
+						<br>If you want to remove a specfic object from the queue, select it and click "Cancel".
+					</li>
+					<br>
+					<font face="Arial" size=3, color="#FF0066">
+					<i>
+						* Note that you can only select one object from the Local File View each time.
+					</i>
+					</font>
+				</ol>
+				
+				<br>
+				
+				<u>Copy and Paste</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#copy_and_paste"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Copy and Paste</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Cut and Paste</u>
+				<ul color="#666666">
+					<li>
+						Click  
+						<a href="file_browser.html#cut_and_paste"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Cut and Paste</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Delete</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#delete"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Delete</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Create</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#create"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Create</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Rename</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#rename"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Rename</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Refresh</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#refresh"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Refresh</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<u>Edit File</u>
+				<ul color="#666666">
+					<li>
+						Click 
+						<a href="file_browser.html#edit_file"><font face="Arial" color="#666666" size=4>
+						File Browser Workspace- Edit File</font></a>
+						for details.
+					</li>
+				</ul>
+				
+				<br>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul color="#666666">
+						<li>
+							<a href="file_transfer_cli.html"><font face="Arial" color="#666666" size=4>Remote File Transfer [Command Mode]</font></a>
+						</li>
+						<li>
+							<a href="file_browser.html"><font face="Arial" color="#666666" size=4>Remote File Browser</font></a>
+						</li>
+						<li>
+							<a href="edit_file.html"><font face="Arial" color="#666666" size=4>Editing File</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

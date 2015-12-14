@@ -1,0 +1,524 @@
+
+   ? search tips    
+  
+ Products and Technologies  Technical Topics 
+Developers Home > Products & Technologies > Java Technology > Community > Bug Database >    
+ 
+  
+
+Bug Database
+Bug Detail
+Quick Lists
+-  Top 25 Bugs  
+-  Top 25 RFE's 
+-  Recently Closed Bugs 
+
+ 
+
+ Printable Page  
+
+
+ 
+
+
+Bug Database 
+Welcome
+  
+?   Login 
+?   Report a Bug 
+?   FAQs 
+   Bug Watch List: 
+?  Watch this Bug 
+  Bug Votes: 
+?  Vote for this Bug 
+ 
+ Bug ID:  4670071  
+Votes  788  
+Synopsis  java.lang.ClassLoader.loadClassInternal(String) is too restrictive  
+Category  java:runtime  
+Reported Against  1.3.1 , 1.4.1 , 1.4.2  
+Release Fixed   
+State  In progress, bug  
+Related Bugs  4406709 , 4726905 , 6182639 , 4699981  
+Submit Date  17-APR-2002  
+Description  
+
+FULL PRODUCT VERSION :
+java version "1.3.1_01"
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.3.1_01)
+Java HotSpot(TM) Client VM (build 1.3.1_01, mixed mode)
+
+FULL OPERATING SYSTEM VERSION :
+
+Microsoft Windows 2000 [Version 5.00.2195]
+
+A DESCRIPTION OF THE PROBLEM :
+Under Bug Id  4406709, someone has recently
+(unsuccessfully) filed a bug wrt the "private synchronized"
+modifiers of the method
+
+java.lang.ClassLoader.loadClassInternal(String name)
+	throws ClassNotFoundException;
+
+leading to deadlocks in his derived special-purpose
+classloaders.
+
+The bug has been closed because of not being a violation
+against the spec. That is perfectly true.
+ 
+However, I want to reissue that topic here, but this time
+under the "Ease of Use" or rather "Huge Amount of Fantastic
+Possibilities" category.
+
+In JBoss3.0 (http://www.jboss.org), we have - or rather
+Marc Fleury has - quite successfully experimented with a
+non-tree-based, runtime-dependency-checking classloader
+delegation model that has a lot of nice modularity and hot-
+deploy features. These features cannot be reached by
+the "traditional" tree model.
+ 
+In that model, as opposed to the tree model, it is
+legal to dispatch a loadClass(String name) call to
+another classloader that is NOT a parent of
+the initiating classloader that is, e.g., trying to
+satisfy a link.
+
+Depending on the topology of the classloader graph,
+deadlocks as caused by  non-interceptible
+loadClassInternal calls are hence likely to occur if not
+countermeasures are taken (e.g., restricted threading while
+accessing the classloaders). Since there is no safe way to do
+that, spurious deadlocks still happen.
+ 
+Delegating to separate objects that are not affected by
+the classloaders locks as proposed by one of the SUN
+engineers in response to the previously filed bug is not
+possible, because we have to re-delegate to
+other -potentially locked- classloaders in the end.
+
+You see that I?m deeply disappointed with the current
+resolution of this issue. I hope you understand the huge
+possibilities that appear when relaxing the current
+solution. Having loadClass() synchronized or
+loadClassInternal() protected should IMHO suffice to meet
+the specification requirements, shouldn?t it?
+
+I know that I am maybe not in the situation to sufficiently
+motivate or explain the issue, but I know that it is a
+highly important piece of the VM!
+
+I hope that other (more involved) people can add comments
+with code to back-up this request more appropriately than I
+am able to do.
+(Review ID: 145293) 
+======================================================================
+ 
+Work Around  N/A
+ 
+Evaluation   xxxxx@xxxxx  2002-05-28
+We will revisit this decision (from bug 4406709).
+
+
+ xxxxx@xxxxx  2002-06-20
+This needs to be considered a valid bug - the classloader objects cannot
+remain locked, as demonstrated in bug 4699981, where a 
+ClassCircularityError is thrown.  This is due to the VM being confused
+about which thread is loading which class when the classloader lock got
+given up by a user classloader.  Since the user can give up the classloader
+lock, we can't guarantee that the lock holds, we should not depend on the lock.
+
+The test case in 4699981 should be used here.
+------------------------------------------------------------
+
+This work is targetted for Dolphin. This will take a number of steps,
+some of which are already in progress, but the overall effort will take
+until Dolphin to complete.
+
+This will require a level of rearchitecture of classloading, and due
+to backward compatibility constraints will probably result in additional
+APIs.
+
+We very much appreciate the testcase, and any additional test cases
+customers wish to provide, so that we are sure that the improvements
+solve the problems they are intended to solve.
+
+It is my hope that we also work closely with those who have
+reported or added their names to this report to ensure that the
+new design and implementations meet all the needs we possibly
+can. 
+
+Specific steps being taken to resolve this issue:
+
+1) 4699981 class circularity detection fixes - Mustang
+
+2)  - redesign vm internal locking mechanism and granularity
+     so as not to use classloader object for internal
+     locking
+   - ensure vm classloading logic is MT-safe
+3) - design/implement new classloading apis in libraries
+4) 4670071 - vm support for new classloading apis
+
+Clearly some of these steps are being done in parallel, but
+this can help outline the changes needed.
+
+One of the biggest challenges technically is backward compatibility.
+Despite the issue that we need to change this since it does not match
+the classloading model for quite a number of customers, we also need
+to ensure that the old apis continue to give the same behavior they
+have now.
+
+One way customers could assist with this is any contributions of test cases for current classloading behavior that applications are counting on that we need to ensure do not break. 
+
+We very much look forward to working closely with the community
+in both the design and testing of the new apis as well
+as in helping us to ensure that current applications
+continue to run well.
+
+
+ xxxxx@xxxxx  2005-04-25 14:06:57 GMT
+
+ xxxxx@xxxxx  2005-04-27 12:56:48 GMT
+ 
+Comments      
+  Include a link with my name & email   
+ 
+Submitted On 19-APR-2002 
+corby Deadlocks are bad. Fixing this bug is good. Be cool.
+
+
+Submitted On 20-APR-2002 
+mhumphrey This seems like an extremely simple fix that would help 
+out the Java community immensely. What's the big debate?
+
+
+Submitted On 20-APR-2002 
+BooVeMan1 We would also very much like to have this bug fixed. We 
+feel than in our current project we run in this issue.
+
+
+Submitted On 21-APR-2002 
+HunterH Since JBoss is probably the best Java application out 
+there, you Sun folks should take heed and get this 
+dialed in.
+
+
+Submitted On 21-APR-2002 
+ChrisH This is giving us major headaches - we're building a huge
+financial trading application which uses this kind of
+classloader as its foundation to give us the ultimate
+flexibily in deployment and upgradability.
+
+
+Submitted On 21-APR-2002 
+alu1344 We also are running into this, need some kind of fix urgently.
+
+
+Submitted On 21-APR-2002 
+smett Though really a stupid problem in the end, I cannot believe 
+that there is still that many problems with threading in 
+Java the fact that the ClassLoader may have a such problem 
+is really annoying... 
+All work-around putting constraints on the system, the need 
+for a proper implementation of the ClassLoading is  really 
+a major need for a professionnal envrionment !
+
+
+
+Submitted On 22-APR-2002 
+kkoster I am a senior architect at a major commodities trading firm and am trying to stave off a set of consultants that want to place .NET as the company standard. If we are stymied by SUN's infrastructure being too restrictive, we will have no choice but to abandon a Java/J2EE solution. Please fix this error in your infrastructure so we can all prevail.
+
+
+Submitted On 22-APR-2002 
+slaboure This should really be fixed: how do you want to build high-
+level application servers without this bug corrected?!? 
+Have you ever considered that the delegation model set in 
+place is not the best model? Even the servlet spec writters 
+mandate to change the order in which the classloader load 
+things (first local, then parent). So don't stick with 
+limitations that only favor your CL scheme while other 
+people at SUN are already in need of other schemes.
+
+
+Submitted On 22-APR-2002 
+krisballe JUST DO IT!!!!
+
+
+Submitted On 22-APR-2002 
+turbogek This is a bug that has more than once eaten my lunch. It has
+causeed me to abandone some great ideas. Please fix!
+Anything that can cause such a deadlock is a possible
+security hole anyway.
+
+
+Submitted On 22-APR-2002 
+dagkilsk Yes, we need this fix. Dont be like MS,  fix bugs!
+
+
+Submitted On 25-APR-2002 
+javaguyaimfi Please take a serious look at this issue. Our application
+rests on top of the JBOSS, which in turn rests on VM. Bugs
+or flaws in VM implementation are automatically flaws in our
+software. U can't tell the customers that it's SUN's fault...
+
+
+Submitted On 26-APR-2002 
+wlight I do a lot of custom classloader implementation, and I've 
+gotten burned by this.  Just fix it!
+
+
+Submitted On 26-APR-2002 
+Etiemble Is there a valid case that shows that this synchronization 
+is better ? So fix it. Thanks.
+
+
+
+Submitted On 27-JUN-2002 
+corgi1000 Fixing this bug will be great, to me this always came as barrier 
+and i always considered it as one of the worse bugs in java 
+platform.
+
+
+Submitted On 27-JUN-2002 
+jrun Please, I have applications on top of JBoss3, and we have a 
+big customer where this bug is causing too much problems, 
+and our app need 1.4 features, so please one more time, fix 
+this bug.
+
+
+Submitted On 31-OCT-2002 
+paul_whitaker Highly illogical captain
+
+
+Submitted On 25-FEB-2003 
+buckman1 I am in a similar situation with regards to this bug. I am 
+developing a generic plugin engine much like Eclipse's engine. 
+I "break" the normal tree delegation model of classloaders by 
+overriding loadclass(string). My classloader simply looks for 
+the given class in its cache, then any of its URLs (it extends 
+URLClassLoader), then in any dependent classloaders 
+(explained below), then the parent loaders.
+
+I am not sure why, but I have seen the cirularity problem 
+when testing my engine, and I am thinking it may be in 
+concjunction with what the JBoss team is talking about as 
+well. The "dependent" loads are those that this plugin 
+depends on. For example, Plugin A depends on plugin B and C. 
+Plugin A's classloader, when asked to find a class from plugin 
+B or C, delegates the process to Plugin B's or C's classloader 
+to find the class. A problem occurs if Plugin B depends on 
+Plugin A as well. I am aware that circular references are not a 
+good idea, and they do make it difficult to compile code 
+(something that may or may not be resolved by the compiler). 
+However, it doesn't void the issue that at runtime a circular 
+condition such as this can occur.
+
+I'd like to be informed of any decisions on this bug.
+
+
+
+Submitted On 10-MAR-2003 
+gbishop This bug is the only one with more votes than the 5 year old 
+RFE 4057701.  We still can't check the amount of disk space.  
+
+Who cares about introducing security problems like this thing -
+ which is a RFE - NOT a BUG! when basic functionality is still 
+missing after 5 years?
+
+
+
+Submitted On 22-JUL-2003 
+smmk yes..plz fix the issue and make this a part of the upcoming 
+delivery for JDC warfare.
+
+
+Submitted On 05-AUG-2003 
+walkerr I'm working on Oscar (an open source OSGi project) - and this 
+bug is making it almost impossible to create an implementation 
+which conforms to modular classloaders in the OSGi spec.
+
+
+Submitted On 07-AUG-2003 
+ahenderson SUN rules - please fix this so I keep thinking the same way
+
+
+Submitted On 30-OCT-2003 
+mezzanine I am developing some very dynamic component and agent
+technology which makes use of class loading from multiple
+local and remote sources.  It is a fundamental requirement
+for me to use lots of delegate objects behind a custom
+ClassLoader and this bug is causing me BIG problems! 
+Please, please fix ASAP.  Java rules, so lets keep it that way.
+
+
+Submitted On 05-DEC-2003 
+ChitraR test
+
+
+Submitted On 05-DEC-2003 
+ChitraR test
+
+
+Submitted On 07-DEC-2003 
+skoolBoyError test!
+
+
+Submitted On 22-DEC-2003 
+Peenie When the coolness of "super duper modularity" and useless 
+buzz items such as "hot-deploy features" starts to impede 
+upon actual performance and usefulness, I don't think it's time 
+to start fixing bugs. I think it's time to stop letting the bored 
+Sun employees work on the VM. Perhaps give them 
+something else to do such as flying a kite or *ahem* fixing the 
+other bugs in this list.
+
+
+Submitted On 20-JAN-2004 
+mpaesold Will this happen any time soon?
+
+
+Submitted On 10-FEB-2004 
+matthias.ernst Can someone please explain where circular classloading makes
+sense ? My take is that a bundle X that relies on classes
+from a bundle Y that in turn relies on X is simply a broken
+setup. Those bundles should have never been separated in the
+first place. JBoss's system seems fishy to me.
+
+
+
+Submitted On 12-MAR-2004 
+hemants22 I wonder, did sun stopped working on j2se? How 
+come so slow about fixing such heavily voted bug
+
+
+Submitted On 19-MAR-2004 
+Tifauv HEY SUN WAKE UP !
+If you don't care about fixing bugs in Java, make your JVM
+Free Software and let people really involved work on it ! It
+would be a great benefit for all of us.
+I'm not upset, just fed up with Sun's attitude ...
+
+
+Submitted On 15-JUN-2004 
+jonabraun Hellow there is any body there, SUN? HELLOW?. Please be wont some fidback. I think it's time to work on this bug . If you can not fixit please just make a brain stroming, or a competition to discover a solution to this problem.
+Thanks a lot
+Somebody from Argentina 
+
+
+Submitted On 19-JUN-2004 
+Epesh_ Say... is the support for fixing this bug SOLELY from JBoss? Is there non-JBoss support for fixing this bug? If not, I'd say that JBoss has a classloader problem, and should work around it - and let Sun focus on bugs that actually matter.
+
+
+Submitted On 20-JUN-2004 
+c7e2y8j4  Java won't load cam video at www.earthcam websit 
+ cy882@hotmail.com
+www.earthcam.com
+
+
+Submitted On 19-JUL-2004 
+dicajohnk good job
+
+
+Submitted On 18-AUG-2004 
+raystar thx a lot
+
+
+Submitted On 22-AUG-2004 
+musheno Shouldent you do locking yourself? If you ask me this seems to break the "do not lock" rule found so commonly in collections.
+
+
+Submitted On 15-SEP-2004 
+NiclasH matthias.ernst is hitting the nail on the head.
+I am certain that this is a JBoss generated issue, instead of taking care of their own mess, they move it back to Sun.
+Hot-deploy, hot-redeploy, and any other dynamic classloading can be solved it is done right from the ground up, not bolted on afterwards like in JBoss. That has been proven in many other projects.
+I recommend Sun to issue a statement to the JBoss community, explaining why they are wrong, and asking them to stop re-opening this issue and direct heaps of users to vote on it.
+Those here who are not affiliated with JBoss's problems, are most certainly going down the same road of incorrectness. Let's not lower the quality of the JLS due to people not knowing what they are doing.
+
+
+
+Submitted On 21-SEP-2004 
+rmgunduz thks for all
+
+
+Submitted On 24-SEP-2004 
+proltsch Agree - needs to be fixed
+
+
+Submitted On 30-SEP-2004 
+chanduj2ee need more explaination regarding which claas and whic piece of code generated and how to solve it with more explaination
+
+
+Submitted On 18-OCT-2004 
+jonassala We use J2SE only, no application servers. Still we see this.
+
+Our own classloaders use RMI when loading classes. There are 3 levels; Sun's own classloader, our JVM global classloader, and our Thread local classloader. These 3 form a chain, where the first 2 will be the same in each chain, and the third is unique for each thread. This way, when starting a new task in a new thread, it may load classes that have been updated during execution.
+
+Oracle's JDBC classes are JVM global to us, and loaded by our middle classloader. When executing a task, Thread.getContextClassLoader() will return our thread local classloader. What happened was that JDBC wanted to throw an exception, and used a resource bundle. java.util.ResourceBundle internally picks up the classloader that loaded JDBC (our middle classloader) and tries to load the resource. So far so good. But this resource is not available (it was a locale specific resource that was not installed) so the classloading over RMI throws an exception. Now comes the peculiar thing. RMI picks up the Thread.getContextClassLoader()  and tries to load the exception. Suddenly class loaders and a java.util class together caused a deadlock that is not obvious (we had no idea ResourceBundle changed the classloader).
+
+The workaround for us was not obvious. We tried to handle locks in our subclasses of java.lang.ClassLoader but the lock on loadClassInternal was impossible to get around. The only way was to be reassured that a class loader cannot cause another class loader "below" it to be called. But how do you avoid RMI to pick the one lowest in the classloader chain?
+
+The only way, for us, was to subclass java.rmi.server.RMIClassLoaderSpi and inspect the package name of the class being loaded. If we could identify it as a package that the default class loader could handle, we called it directly, thereby avoiding any classloader that may cause a deadlock.
+
+This fix is rather dirty. We rely on knowing that java.* and some of our own classes are loaded by the default loader. And it works becuase we use RMI to load our classes. I can't tell if this strategy would work if classes were loaded in another fashion.
+
+A review if locks could be handled differently could bring some light.
+
+
+
+
+Submitted On 26-OCT-2004 
+bestsss >>We rely on knowing that java.* and some of our own classes are loaded by the default loader.
+No custom classloader can load "java." class. It's strictly forbidden.
+
+
+Submitted On 29-NOV-2004 
+baris_sert dtgdfgsdfgs
+
+
+Submitted On 14-JAN-2005 
+kaushik_vishwakarma Test
+
+
+Submitted On 27-MAY-2005 
+moax When is this going to be fixed?
+
+
+Submitted On 29-NOV-2005 
+i am sure u will fix this code...u can achieve it easily
+
+
+Submitted On 29-NOV-2005 
+i am sure u will fix this code...u can achieve it easily
+
+
+Submitted On 29-NOV-2005 
+hi friends i am new to this java so please help me out in learning...i am very interested in java programming..please help me out
+
+
+Submitted On 07-DEC-2005 
+why first of all many questions, is the modifier changed from public to private synchronized for ? secondly does sun engineer trust us (the developers) enough to allows to overload or even override this method ?
+
+
+ 
+ 
+
+ 
+  
+ 
+
+ 
+ 
+
+ 
+
+About Sun  |  About This Site  |  Newsletters  |  Contact Us  |  Employment
+How to Buy  |  Licensing  |  Terms of Use  |  Privacy  |  Trademarks 
+ 
+
+ 
+Copyright 1994-2005 Sun Microsystems, Inc.   A Sun Developer Network Site
+
+Unless otherwise licensed, code in all technical manuals herein (including articles, FAQs, samples) is provided under this License. 
+ 
+ Content Feeds  
+ 
+ 

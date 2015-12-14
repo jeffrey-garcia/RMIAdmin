@@ -1,0 +1,11 @@
+// This document describe how to compile JAVA programs with XML Parser library.
+
+1. Set CLASSPATH=%CLASSPATH%;current path
+	e.g. Set CLASSPATH=%CLASSPATH%;C:\j2sdk1.4.0\002_dev\prototype
+	
+2. Set CLASSPATH=%CLASSPATH%;C:\Sun\jwsdp-1.5\jaxp\lib\endorsed\dom.jar (for DOM)
+
+3. Set CLASSPATH=%CLASSPATH%;C:\Sun\jwsdp-1.5\jaxp\lib\endorsed\xercesImpl.jar (for DOM)
+
+
+

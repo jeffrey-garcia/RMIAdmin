@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bug>
+	<bugInfo>
+		<id>200508111003</id>
+		<synopsis>Table column cannot be sorted correctly in the File Browser</synopsis>
+		<category>RMIAdmin Client GUI - File Browser</category>
+		<date>2005-08-11</date>
+		<status>Fixed</status>
+		<relatedBug>NA</relatedBug>
+		<severity>Low</severity>
+		<affectedVer>1.2</affectedVer>
+		<detail>The File Table Browser View of RMIAdmin client (which display the remote file system), provide detail file information such as file name, file size, last modified date in columns. Unfortunately these columns cannot be sorted accurately.</detail>
+		<solution>The problematic source code has been modified to rectified the error, and now sorting for the files by column can be performed accurately.</solution>
+	</bugInfo>
+
+	<bugInfo>
+		<id>200508141125</id>
+		<synopsis>Table column cannot be sorted when columns are interchanged</synopsis>
+		<category>RMIAdmin Client GUI - File Browser</category>
+		<date>2005-08-14</date>
+		<status>Fixed</status>
+		<relatedBug>NA</relatedBug>
+		<severity>Low</severity>
+		<affectedVer>1.2</affectedVer>
+		<detail>The File Table browser view of RMIAdmin client (which display the remote file system), provide detail file information such as file name, file size, last modified date in columns. However when these columns are dragged and interchanged with each other, the sorting functions will no longer works.</detail>
+		<solution>The problematic source code has been modified to rectified the error, and now sorting for the files by column can be performed accurately.</solution>
+	</bugInfo>
+</bug>

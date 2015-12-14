@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Manage Performance
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to manage the memory resource consumption for any managed servers.
+				
+				<br><br><br>
+				
+				One of the great beauty of JAVA is that it poccess automatic garbage collection, where 
+				developers are no longer required to write programs to handle the low-level operation 
+				about memory allocation. Since JAVA will do that for us to release un-used memory back 
+				to the operating system, with the compromisation of a bit slower performance than C / C++ / VB 
+				applications.
+				
+				<br><br>
+				
+				RMIAdmin facilitates the management of performance by means of displaying the real-time 
+				memory usage statistics within the JVM (Java Virtual Machine) of remote computers, and 
+				allow administrators / developers / users to trigger garbage collection freely.
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<i>
+						* Note that JAVA cannot force the JVM to release un-used memory, it can only suggest 
+						the JVM to perform garbage collection, but this does not guarantee when it will happen 
+						and we have no way to predict the actual execution time.
+						<br><br>
+						* For details, please visit the JAVA's official website or click 
+						<a href="http://java.sun.com/docs/books/tutorial/essential/system/garbage.html"><font face="Arial" size="4" color="#FF0066">HERE</font></a>.
+					</i>
+				</font>
+				
+				<br><br>
+				
+				Follow the instructions below to use the memory monitor:
+				
+				<ol color="#666666">
+					<li>
+						First, go to the top menu bar, select &quot;Configure&quot; -> &quot;Manage Performance&quot;.<br>
+					</li>
+					<li>
+						Choose your target server to operate by clicking the "Select Server" button. 
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click &quot;OK&quot; to continue.<br>
+						<img src="images/select_server.gif" alt="" border="0">
+					</li>
+					<li>
+						This will open up a &quot;Memory Monitor&quot; for the specified server as below.<br>
+						<img src="images/memory_monitor.gif" alt="" border="0">
+					</li>
+				</ol>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 &copy; RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

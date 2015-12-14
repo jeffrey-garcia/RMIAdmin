@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Setup Shell Environment
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="center">
+			<font face="Arial" size=4 color="#666666">
+				RMIAdmin allows you to dynamically switch the shell environment for remote command execution.
+				
+				<br><br><br>
+				
+				For example, when you need to run some commands/scripts which require different shell environment, 
+				you may switch to the target shell before executing the instructions.
+				
+				<br><br>
+				
+				Let's look at the following example, suppose our target server is a Linux Machine, in which we have 
+				to execute three different commands:
+				<ul color="#666666">
+					<li>The first one required to be executed in BASH shell (<i>/bin/bash</i>)</li>
+					<li>The second one required to be executed in CSH shell (<i>/bin/csh</i>)</li>
+					<li>The third one required to be executed in KSH shell (<i>/bin/ksh</i>)</li>
+				</ul>
+				We could then changed the target shell each time before invoking the command, as shown below:
+				
+				<br>
+				
+				<ol color="#666666">
+					<li>
+						Select &quot;Tools&quot; -> &quot;Command Line&quot;, this will brings you to the Command Line Workspace.<br>
+						<img src="images/command_line_workspace.gif" alt="0" border="0" width="925" height="584">
+					</li>
+					<li>
+						Choose your target server to operate by clicking the &quot;Select Server&quot; button.
+					</li>
+					<li>
+						All the managed server will be loaded into a list box, simply choose your preferred 
+						server, and click "OK" to continue.<br>
+						<img src="images/select_server.gif" alt="0" border="0" width="272" height="123">
+					</li>
+					<li>
+						Next click the "Setup Shell" button, this will open up the "Setup Shell Environment" window, 
+						where you could define target shell.<br>
+						<img src="images/setup_shell.gif" alt="0" border="0" width="283" height="177">
+					</li>
+					<li>
+						Key-in any preferred shell and click "OK" to apply the new setting. Otherwise click "Cancel" 
+						to abort.
+					</li>
+					<li>
+						You may then repeat the above steps each time you need to change the default shell.
+					</li>
+				</ol>
+				
+				<br><br>
+				
+				<font face="Arial" color="#FF0066" size=4>
+					<u><b>Related Topics:</b></u>
+					<ul>
+						<li>
+							<a href="execute_command.html"><font face="Arial" color="#666666" size=4>Execut Remote Command</font></a>
+						</li>
+						<li>
+							<a href="custom_batch.html"><font face="Arial" color="#666666" size=4>Customized Batch</font></a>
+						</li>
+					</ul>
+				</font>
+			</font>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

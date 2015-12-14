@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMIAdmin Help</title>
+</head>
+
+<body bgcolor="FFFFFF" topmargin="0" leftmargin="0">
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left">
+			<font face="Arial" size=6 color="#999999">
+				&nbsp;
+				Generate Authentication
+			</font>
+			<hr color="#E3E3E3">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<table border="0" cellspacing="0" cellpadding="0"> 
+				<tr>
+					<td>
+						<font face="Arial" size=4 color="#666666">
+							RMIAdmin is compriesed of two separate programs: a server and a client.
+							<br><br>
+							The server application creates some remote objects, makes references to them accessible, 
+							and waits for clients to invoke methods on these remote objects, which are registered with 
+							the RMI's simple naming facility - the RMIREGISTRY.
+							<br><br>
+							While the client application gets a remote reference (by looking up the remote registry) 
+							to one or more remote objects in the server and then invokes method on them.
+							<br><br>
+							RMIAdmin allows registered user to achieve secure connection only from validated client by means 
+							of encrypting the remote RMI's service name based on a pre-defined key, the RMI Server could then 
+							be started using the -k parameter, which indicates that an encrypted service name will be binded to 
+							the RMIREGISTRY, only client with the valid key which can decrypt the remote RMI service name can 
+							connect with this RMI Server.
+							<br><br>
+							See the below diagram for details:<br>
+							<img src="images/generate_auth_overview.gif" alt="0" border="1" width="713" height="407">
+							<br>
+							The above illustration depicts the distributed architecture of RMIAdmin that uses the 
+							registry to obtain a reference to a remote object. The RMI Server calls the registry 
+							to associate (or bind) a name with a remote object. The RMI Client then looks up the 
+							remote object by its name in the RMI Server's registry and then invokes a method on 
+							it.
+							<br><br>
+							<u>Usage Instructions:</u>
+							<ol color="#666666">
+								<li>
+									From the toolbar, select "Configure" -> "Generate Authentication"
+								</li>
+								<li>
+									You will then see the below screen, which require to input 2 values.<br>
+									<img src="images/generate_auth.gif" alt="0" border="0" width="352" height="192">
+								</li>
+								<li>
+									Input the server key, which is the key used to encrypt the passphrase.
+								</li>
+								<li>
+									Input the passphrase (remote RMI service name), which will then be encrypted by the 
+									server key.
+								</li>
+								<li>
+									When ready, click "OK" to proceed, or click "Cancel" to abort.
+								</li>
+								<li>
+									You must then use other transfer mechanism to upload this file to remote server, then 
+									activate the encrypted RMI serivce name by restarting the RMI Server with the -k option.
+									<br>
+									See 
+									<a href="rmiserver_cli.html"><font face="Arial" size=4 color="#FF0066">Starting the RMI Server [Command Mode]</font></a>
+									for details.
+								</li>
+							</ol>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<br><br><br><br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center" valign="center">
+			<hr color="#E3E3E3">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="middle" width="30" height="50">
+						<img src="images/rmiAdmin_small_logo.gif" align="middle" border="0" width="20" height="20">
+					</td>
+					<td align="center" valign="middle">
+						<font face="Arial" size=3 color="#FF0066">
+							<b>Copyright 2005 © RMIAdmin. All rights reserved.</b>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>
