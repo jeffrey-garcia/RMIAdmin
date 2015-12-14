@@ -1,0 +1,19 @@
+***************************************************
+*
+* How to create javadoc on java programs
+*
+***************************************************
+
+1. Comment your source code with valid javadoc syntax
+
+2. Open command prompt, run javadoc your_source_program -author -version -private -d your_target_directory
+   e.g. call C:\j2sdk1.4.0\bin\javadoc test_1.java -author -version -private -d api
+   
+3. All the javadoc web pages will then be created in the specified directory
+
+
+*** Parameters explanation ***
+-author		to generate the information of Author
+-version	to generate the information of version
+-private	to generate the information of all fields & methods, no matter it is public, protected or private
+-d xxx		to generate the javadoc webpages in a specified directory (xxx)
